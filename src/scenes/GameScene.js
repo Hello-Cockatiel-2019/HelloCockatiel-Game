@@ -55,7 +55,7 @@ class GameScene extends Phaser.Scene {
         })
         this.load.image('bg', 'src/image/background.png')
         this.load.image('bullet', 'src/image/Bullet.png')
-        this.load.spritesheet('monster', 'src/image/botSpriteSheet.png', {
+        this.load.spritesheet('monster', 'src/image/BotSpriteSheet.png', {
             frameWidth: 2232,
             frameHeight: 2232
         })
@@ -63,21 +63,21 @@ class GameScene extends Phaser.Scene {
             frameWidth: 2510,
             frameHeight: 1510
         })
-        this.load.spritesheet('fire', 'src/image/Fire.png', {
+        this.load.spritesheet('fire', 'src/image/fire.png', {
             frameWidth: 492,
             frameHeight: 703
         })
-        this.load.image('cloud1', 'src/image/cloud1.png')
-        this.load.image('cloud2', 'src/image/cloud2.png')
-        this.load.image('cloud3', 'src/image/cloud3.png')
-        this.load.image('cloud4', 'src/image/cloud4.png')
-        this.load.image('cloud5', 'src/image/cloud5.png')
+        this.load.image('cloud1', 'src/image/Cloud1.png')
+        this.load.image('cloud2', 'src/image/Cloud2.png')
+        this.load.image('cloud3', 'src/image/Cloud3.png')
+        this.load.image('cloud4', 'src/image/Cloud4.png')
+        this.load.image('cloud5', 'src/image/Cloud5.png')
         this.load.image('bigFire', 'src/image/bigfire.png')
         this.load.image('sea1', 'src/image/Sea-1.png')
         this.load.image('sea2', 'src/image/Sea-2.png')
-        this.load.image('bush1', 'src/image/bush-1.png')
-        this.load.image('bush2', 'src/image/bush-2.png')
-        this.load.image('bush3', 'src/image/bush-3.png')
+        this.load.image('bush1', 'src/image/Bush-1.png')
+        this.load.image('bush2', 'src/image/Bush-2.png')
+        this.load.image('bush3', 'src/image/Bush-3.png')
         this.load.image('separate', 'src/image/Separate.png')
         this.load.image('rapid', 'src/image/Rapid.png')
     }
