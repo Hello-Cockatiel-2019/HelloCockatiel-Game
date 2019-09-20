@@ -1,20 +1,14 @@
 pipeline{
   agent any
   stages {
-	stage('build'){
+   	stage('dev'){
 		steps{
-			sh 'echo "=================================================="'
-		}
+		sh' ssh cockatiel@103.86.50.70 " pm2 delete ${JOB_NAME} || : " '
+		sh' ssh cockatiel@103.86.50.70 " mkdir -p /home/cockatiel/${JOB_NAME} " '
+		sh' ssh cockatiel@103.86.50.70 " rm -rf /home/cockatiel/${JOB_NAME}/* || : " '
+		sh' scp -r * cockatiel@103.86.50.70:/home/cockatiel/${JOB_NAME} '
+		sh' ssh cockatiel@103.86.50.70 " cd /home/cockatiel/${JOB_NAME} && yarn && PORT=4000 pm2 start yarn --name "${JOB_NAME}" -- dev " '
 	}
-   	stage('test'){
-		steps{
-			sh 'echo "=================== [ Step : Test. [2/3] ] ====================="'
-		}
-    	}
-   	stage('production'){
-		steps{
-			sh 'echo "============= [ Step : Production. [3/3] ] ===================================="'
-		}
-    	}
+    }
   }
 }
