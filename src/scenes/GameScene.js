@@ -63,7 +63,7 @@ class GameScene extends Phaser.Scene {
             frameWidth: 2510,
             frameHeight: 1510
         })
-        this.load.spritesheet('fire', 'src/image/Fire.png', {
+        this.load.spritesheet('fire', 'HelloCockatiel-Game/src/image/Fire.png', {
             frameWidth: 492,
             frameHeight: 703
         })
