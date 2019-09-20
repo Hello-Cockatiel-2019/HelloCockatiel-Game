@@ -55,7 +55,7 @@ class GameScene extends Phaser.Scene {
         })
         this.load.image('bg', 'src/image/background.png')
         this.load.image('bullet', 'src/image/Bullet.png')
-        this.load.spritesheet('monster', 'src/image/BotSpriteSheet.png', {
+        this.load.spritesheet('monster', 'src/image/Botspritesheet.png', {
             frameWidth: 2232,
             frameHeight: 2232
         })
