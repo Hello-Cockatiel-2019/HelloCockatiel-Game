@@ -19,7 +19,7 @@ pipeline{
             sh' ssh cockatiel@103.86.50.70 " rm -rf /home/cockatiel/${JOB_NAME}/* || : " '
             sh' scp -r * cockatiel@103.86.50.70:/home/cockatiel/${JOB_NAME} '
             sh' ssh cockatiel@103.86.50.70 " cd /home/cockatiel/${JOB_NAME} && yarn " '
-            sh' ssh cockatiel@103.86.50.70 " cd /home/cockatiel/${JOB_NAME} && yarn build " '
+            sh' ssh cockatiel@103.86.50.70 " cd /home/cockatiel/${JOB_NAME} && yarn deploy " '
             sh' ssh cockatiel@103.86.50.70 " cd /home/cockatiel/${JOB_NAME} && pm2 start serve --name "${JOB_NAME}" -- -l 6000 -s build " '
             }
         }
