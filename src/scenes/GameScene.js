@@ -39,7 +39,7 @@ let bushs
 let randomBush
 let fired = false
 let checkAmount
-
+let ever = 0
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -107,37 +107,39 @@ class GameScene extends Phaser.Scene {
         bushs = this.physics.add.group()
 
 
-
-        this.anims.create({
-            key: 'playerAni',
-            frames: this.anims.generateFrameNumbers('player', {
-                start: 0,
-                end: 7
-            }),
-            framerate: 10,
-            repeat: -1
-        })
-
-
-        this.anims.create({
-            key: 'fly',
-            frames: this.anims.generateFrameNumbers('monster', {
-                start: 0,
-                end: 2
-            }),
-            framerate: 5,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'fireAni',
-            frames: this.anims.generateFrameNumbers('fire', {
-                start: 0,
-                end: 2
-            }),
-            framerate: 10,
-            repeat: -1
-        })
+        if(ever != 1){
+            ever = 1
+            this.anims.create({
+                key: 'playerAni',
+                frames: this.anims.generateFrameNumbers('player', {
+                    start: 0,
+                    end: 7
+                }),
+                framerate: 10,
+                repeat: -1
+            })
+    
+    
+            this.anims.create({
+                key: 'fly',
+                frames: this.anims.generateFrameNumbers('monster', {
+                    start: 0,
+                    end: 2
+                }),
+                framerate: 5,
+                repeat: -1
+            })
+    
+            this.anims.create({
+                key: 'fireAni',
+                frames: this.anims.generateFrameNumbers('fire', {
+                    start: 0,
+                    end: 2
+                }),
+                framerate: 10,
+                repeat: -1
+            })
+        }
 
 
 
@@ -308,10 +310,10 @@ class GameScene extends Phaser.Scene {
             loop: true
         });
 
-        checkAmount = this.time.addEvent({
+       /* checkAmount = this.time.addEvent({
             delay: 1000,
             callback: function () {
-                /* console.log('number of monsters ' + monsters.getLength())
+                 console.log('number of monsters ' + monsters.getLength())
                  console.log('number of fires ' + fires.getLength())
                  console.log('number of bullets ' + bullets.getLength())
                  console.log('number of fastbullets ' + fastbullets.getLength())
@@ -324,11 +326,11 @@ class GameScene extends Phaser.Scene {
                  console.log('bigfire amount ' + bigFires.getLength())
                  console.log('sea amount ' + seas.getLength())
                  console.log('bush amount ' + bushs.getLength())
-                 console.log('-----------------------------------------------')*/
+                 console.log('-----------------------------------------------')
             },
             callbackScope: this,
             loop: true
-        })
+        })*/
 
         this.physics.add.overlap(bullets, monsters, this.kill)
 
@@ -383,85 +385,76 @@ class GameScene extends Phaser.Scene {
         fires.playAnimation('fireAni', '0')
         player.anims.play('playerAni', true)
 
-        for (var i = 0; i < clouds.getLength(); i++) {
-            var cloud = clouds.getChildren()[i]
+        if(clouds.getLength()>0){
+            let cloud = clouds.getChildren()[0]
             if (cloud.y > this.game.config.height + 100) {
                 cloud.destroy(true)
             }
         }
-        for (var i = 0; i < fires.getLength(); i++) {
-            var fire = fires.getChildren()[i]
+       
+        if(fires.getLength()>0){
+            let fire = fires.getChildren()[0]
             if (fire.y > this.game.config.height + 100) {
                 fire.destroy(true)
             }
         }
 
-        for (var i = 0; i < bullets.getLength(); i++) {
-            /*var bullet = bullets.getChildren()[i]
-            if (bullet.y <= -100) {
+        if(bullets.getLength()>0){
+            let bullet = bullets.getChildren()[0]
+            if (bullet.y < - 50) {
                 bullet.destroy(true)
-            }*/
-            var bull = bullets.getChildren()[0]
-            if (bull.y <= -50) {
-                bull.destroy(true)
             }
         }
-        for (var i = 0; i < fastbullets.getLength(); i++) {
-            var fastBul = fastbullets.getChildren()[i]
-            if (fastBul.y <= -100) {
-                fastBul.destroy(true)
+        if(fastbullets.getLength()>0){
+            let fast = fastbullets.getChildren()[0]
+            if (fast.y < -50) {
+                fast.destroy(true)
             }
         }
-        for (var i = 0; i < leftSpreadBullets.getLength(); i++) {
-            var left = leftSpreadBullets.getChildren()[i]
-            if (left.y <= -100) {
+        if(leftSpreadBullets.getLength()>0){
+            let left = leftSpreadBullets.getChildren()[0]
+            if (left.y < -50) {
                 left.destroy(true)
             }
         }
-        for (var i = 0; i < middleSpreadBullets.getLength(); i++) {
-            var mid = middleSpreadBullets.getChildren()[i]
-            if (mid.y <= -100) {
+        if(middleSpreadBullets.getLength()>0){
+            let mid = middleSpreadBullets.getChildren()[0]
+            if (mid.y < -50) {
                 mid.destroy(true)
             }
         }
-        for (var i = 0; i < rightSpreadBullets.getLength(); i++) {
-            var right = rightSpreadBullets.getChildren()[i]
-            if (right.y <= -100) {
+        if(rightSpreadBullets.getLength()>0){
+            let right = rightSpreadBullets.getChildren()[0]
+            if (right.y < -50) {
                 right.destroy(true)
             }
         }
-        for (var i = 0; i < items.getLength(); i++) {
-            var item = items.getChildren()[i]
-            if (item.y > this.game.config.height + 100) {
+        if(items.getLength()>0){
+            let item = items.getChildren()[0]
+            if (item.y > this.game.config.height + 50) {
                 item.destroy(true)
             }
         }
-        for (var i = 0; i < seas.getLength(); i++) {
-            var sea = seas.getChildren()[i]
-            if (sea.y > this.game.config.height + 500) {
+        if(seas.getLength()>0){
+            let sea = seas.getChildren()[0]
+            if (sea.y > this.game.config.height + 700) {
                 sea.destroy(true)
             }
         }
-        for (var i = 0; i < monsters.getLength(); i++) {
-            var mons = monsters.getChildren()[i]
-            if (mons.y > this.game.config.height + 100) {
-                mons.destroy(true)
-                score -= 50;
-                scoreText.setText('Score: ' + score);
+        if(monsters.getLength()>0){
+            let monster = monsters.getChildren()[0]
+            if (monster.y > this.game.config.height + 50) {
+                monster.destroy(true)
             }
         }
-        for (var i = 0; i < bigFires.getLength(); i++) {
-
-            var bigFi = bigFires.getChildren()[i]
-            if (bigFi.y > this.game.config.height + 100) {
-                bigFi.destroy(true)
-                fired = false
-                score -= 150;
-                scoreText.setText('Score: ' + score);
+        if(bigFires.getLength()>0){
+            let bigFire = bigFires.getChildren()[0]
+            if (bigFire.y > this.game.config.height + 100) {
+                bigFire.destroy(true)
             }
         }
-        for (var i = 0; i < bushs.getLength(); i++) {
-            var bush = bushs.getChildren()[i]
+        if(bushs.getLength()>0){
+            let bush = bushs.getChildren()[0]
             if (bush.y > this.game.config.height + 100) {
                 bush.destroy(true)
             }
@@ -484,17 +477,20 @@ class GameScene extends Phaser.Scene {
             enemyFire.delay = 800
         }
         if (randomBush.delay < 700) {
-            enemyFire.delay = 700
+            randomBush.delay = 700
         }
 
-
+        player.setVelocityX(0)
 
         if (cursor.left.isDown) {
             player.setVelocityX(-400)
+            console.log('left')
         } else if (cursor.right.isDown) {
             player.setVelocityX(400)
+            console.log('right')
         } else {
             player.setVelocityX(0)
+            console.log('a')
         }
 
 
@@ -529,6 +525,7 @@ class GameScene extends Phaser.Scene {
     gameOver() {
         this.scene.start('Restart')
         console.log('Game Over')
+        health = 5
     }
 
     kill(bullet, monster) {

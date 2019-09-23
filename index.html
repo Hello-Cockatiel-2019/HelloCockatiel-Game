@@ -1,84 +1,24 @@
-Html Webpack Plugin:
-<pre>
-  Error: Child compilation failed:
-  Module build failed: Error: ENOENT: no such file or directory, open '/Users/smurf/Documents/GitHub/HelloCockatiel-Game/node_modules/lodash/lodash.js':
-  Error: ENOENT: no such file or directory, open '/Users/smurf/Documents/GitHub/HelloCockatiel-Game/node_modules/lodash/lodash.js'
-  
-  - compiler.js:79 childCompiler.runAsChild
-    [HelloCockatiel-Game]/[html-webpack-plugin]/lib/compiler.js:79:16
-  
-  - Compiler.js:343 compile
-    [HelloCockatiel-Game]/[webpack]/lib/Compiler.js:343:11
-  
-  - Compiler.js:671 hooks.afterCompile.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compiler.js:671:15
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compiler.js:668 compilation.seal.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compiler.js:668:31
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1385 hooks.optimizeAssets.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1385:35
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1376 hooks.optimizeChunkAssets.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1376:32
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1371 hooks.additionalAssets.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1371:36
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1367 hooks.optimizeTree.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1367:32
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1304 Compilation.seal
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1304:27
-  
-  - Compiler.js:665 compilation.finish.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compiler.js:665:18
-  
-  - Compilation.js:1224 hooks.finishModules.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1224:4
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [HelloCockatiel-Game]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1216 Compilation.finish
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1216:28
-  
-  - Compiler.js:662 hooks.make.callAsync.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compiler.js:662:17
-  
-  
-  - Compilation.js:1148 _addModuleChain
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1148:12
-  
-  - Compilation.js:1060 processModuleDependencies.err
-    [HelloCockatiel-Game]/[webpack]/lib/Compilation.js:1060:9
-  
-  - next_tick.js:61 process._tickCallback
-    internal/process/next_tick.js:61:11
-  
-</pre><script type="text/javascript" src="./dev/vendor.js"></script><script type="text/javascript" src="./dev/app.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phaser3 - ES6 - Webpack</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <style>
+        @font-face {
+            font-family: font1;
+            src: url('./src/image/FEASFBRG.TTF');
+            font-weight: 400;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content" style="font-family:font1; display: block; width: 100%; text-align: center"></div>
+<script type="text/javascript" src="./dev/vendor.js"></script><script type="text/javascript" src="./dev/app.js"></script></body></html>
