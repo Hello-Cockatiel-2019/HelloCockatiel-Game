@@ -49,7 +49,7 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.spritesheet('player', '/src/image/player.png', {
+        this.load.spritesheet('player', 'src/image/player.png', {
             frameWidth: 410,
             frameHeight: 310
         })
@@ -376,7 +376,7 @@ class GameScene extends Phaser.Scene {
                 }
             }
         })
-        player.setVelocityX(0)
+
     }
 
     update() {
@@ -480,7 +480,7 @@ class GameScene extends Phaser.Scene {
             randomBush.delay = 700
         }
 
-        
+        player.setVelocityX(0)
 
         if (cursor.left.isDown) {
             player.setVelocityX(-400)
