@@ -84,7 +84,7 @@ class GameScene extends Phaser.Scene {
 
     create() {
         bg = this.add.tileSprite(0, 0, 600, 900, 'bg').setOrigin(0, 0)
-        player = this.physics.add.sprite(300, 850, 'player').setCollideWorldBounds(true).setDepth(10).setScale(0.4)
+        player = this.physics.add.sprite(300, 850, 'player').setCollideWorldBounds(true).setDepth(10).setScale(0.4).setSize(310,110).setOffset(60,80)
         hp = this.physics.add.sprite(450, 50, 'hp').setScale(0.1).setDepth(10)
         var style = {
             font: '32px Arial',
@@ -158,7 +158,7 @@ class GameScene extends Phaser.Scene {
         monsterSpawn = this.time.addEvent({
             delay: 1500 - score * 0.7,
             callback: function () {
-                monster = this.physics.add.sprite(Phaser.Math.Between(50, this.game.config.width - 50), -50, 'monster').setScale(0.05).setDepth(5)
+                monster = this.physics.add.sprite(Phaser.Math.Between(50, this.game.config.width - 50), -50, 'monster').setScale(0.05).setDepth(5).setSize(2000,850).setOffset(100,600)
                 monsters.add(monster)
                 monsters.setVelocityY(200)
             },
@@ -173,7 +173,7 @@ class GameScene extends Phaser.Scene {
                 var position = monsters.getLength()
                 for (var i = 0; i < position; i++) {
                     if (!(monsters.getChildren()[i].y >= 650)) {
-                        enemyBullet = this.physics.add.sprite(monsters.getChildren()[i].x, monsters.getChildren()[i].y + 50, 'fire').setScale(0.08).setDepth(5)
+                        enemyBullet = this.physics.add.sprite(monsters.getChildren()[i].x, monsters.getChildren()[i].y + 50, 'fire').setScale(0.08).setDepth(5).setSize(250,550).setOffset(100,90)
                         fires.add(enemyBullet)
                     }
                 }
@@ -484,13 +484,10 @@ class GameScene extends Phaser.Scene {
 
         if (cursor.left.isDown) {
             player.setVelocityX(-400)
-            console.log('left')
         } else if (cursor.right.isDown) {
             player.setVelocityX(400)
-            console.log('right')
         } else {
             player.setVelocityX(0)
-            console.log('a')
         }
 
 
