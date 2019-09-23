@@ -21,20 +21,20 @@ class Restart extends Phaser.Scene {
 
     create(){
         bg = this.add.tileSprite(0, 0, 600, 900, 'bg').setOrigin(0, 0)
-        var style = {
+        let style = {
             fontFamily: 'font1',
             fill: '#ffffff'
         }
         this.text1 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Click to Restart', style).setOrigin(0.5).setFontSize(40)
         this.text1.setInteractive()
         this.text1.on('pointerdown', function(){
-            this.scene.scene.start('GameScene')
-        })
+            this.scene.start('GameScene')
+        }, this)
         this.text2 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.5) + 60, 'Click to Exit', style).setOrigin(0.5).setFontSize(40)
         this.text2.setInteractive()
         this.text2.on('pointerdown', function(){
-            this.scene.scene.start('MainMenu')
-        })
+            this.scene.start('MainMenu')
+        }, this)
         clouds = this.physics.add.group()
         cloudSpawn = this.time.addEvent({
             delay: 4500,

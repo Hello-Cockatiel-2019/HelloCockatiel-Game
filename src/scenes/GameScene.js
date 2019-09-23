@@ -39,7 +39,7 @@ let bushs
 let randomBush
 let fired = false
 let checkAmount
-
+let ever = 0
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -107,37 +107,39 @@ class GameScene extends Phaser.Scene {
         bushs = this.physics.add.group()
 
 
-
-        this.anims.create({
-            key: 'playerAni',
-            frames: this.anims.generateFrameNumbers('player', {
-                start: 0,
-                end: 7
-            }),
-            framerate: 10,
-            repeat: -1
-        })
-
-
-        this.anims.create({
-            key: 'fly',
-            frames: this.anims.generateFrameNumbers('monster', {
-                start: 0,
-                end: 2
-            }),
-            framerate: 5,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'fireAni',
-            frames: this.anims.generateFrameNumbers('fire', {
-                start: 0,
-                end: 2
-            }),
-            framerate: 10,
-            repeat: -1
-        })
+        if(ever != 1){
+            ever = 1
+            this.anims.create({
+                key: 'playerAni',
+                frames: this.anims.generateFrameNumbers('player', {
+                    start: 0,
+                    end: 7
+                }),
+                framerate: 10,
+                repeat: -1
+            })
+    
+    
+            this.anims.create({
+                key: 'fly',
+                frames: this.anims.generateFrameNumbers('monster', {
+                    start: 0,
+                    end: 2
+                }),
+                framerate: 5,
+                repeat: -1
+            })
+    
+            this.anims.create({
+                key: 'fireAni',
+                frames: this.anims.generateFrameNumbers('fire', {
+                    start: 0,
+                    end: 2
+                }),
+                framerate: 10,
+                repeat: -1
+            })
+        }
 
 
 
@@ -487,7 +489,7 @@ class GameScene extends Phaser.Scene {
             enemyFire.delay = 700
         }
 
-
+        player.setVelocityX(0)
 
         if (cursor.left.isDown) {
             player.setVelocityX(-400)
@@ -529,6 +531,7 @@ class GameScene extends Phaser.Scene {
     gameOver() {
         this.scene.start('Restart')
         console.log('Game Over')
+        health = 5
     }
 
     kill(bullet, monster) {
