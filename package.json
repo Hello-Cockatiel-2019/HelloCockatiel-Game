@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "phaser": "3.12.0",
-    "phaser-animated-tiles": "^2.0.2",
-    "yarn": "^1.17.3"
+    "phaser-animated-tiles": "^2.0.2"
   }
 }
