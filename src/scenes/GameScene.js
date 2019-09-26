@@ -50,6 +50,7 @@ class GameScene extends Phaser.Scene {
 
     init(data){
         this.name = data.Player_Name
+        score = 0
     }
 
     preload() {
@@ -87,7 +88,6 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
-        console.log(this.name)
         bg = this.add.tileSprite(0, 0, 600, 900, 'bg').setOrigin(0, 0)
         player = this.physics.add.sprite(300, 850, 'player').setCollideWorldBounds(true).setDepth(10).setScale(0.4).setSize(310,110).setOffset(60,80)
         hp = this.physics.add.sprite(450, 50, 'hp').setScale(0.1).setDepth(10)

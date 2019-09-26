@@ -19,11 +19,15 @@ let tree;
 let ground;
 let fullButton;
 let name;
+let ever = 0;
 class MainMenu extends Phaser.Scene { 
     constructor(test) { 
         super({ key: 'MainMenu' }); 
     
     } 
+    init(data){
+        ever = data.ever==null?0:data.ever
+    }
  
     preload() {
         this.load.image('bg01', '../../images/BGMenu1.png')
@@ -44,8 +48,9 @@ class MainMenu extends Phaser.Scene {
         ground = this.add.image(100, 0, 'ground')
         mountain = this.add.image(200, 1000, 'mountain')
         tree = this.add.image(0, 0, 'tree').setScale(0.5).setOrigin(0, 0)
-
-        name = prompt("Input your name: ", "HelloCockatiel")
+        if(ever == 0){
+            name = prompt("Input your name: ", "HelloCockatiel")
+        }
         
         sign01 = this.add.image(0, 0, 'sign3').setScale(0.4)
         sign02 = this.add.image(0, 0, 'sign1').setScale(0.25)

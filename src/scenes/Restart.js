@@ -41,7 +41,7 @@ class Restart extends Phaser.Scene {
         this.text2 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.5) + 60, 'Click to Exit', style).setOrigin(0.5).setFontSize(40)
         this.text2.setInteractive()
         this.text2.on('pointerdown', function(){
-            this.scene.start('MainMenu')
+            this.scene.start('MainMenu', {ever : 1})
         }, this)
         this.text3 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.25, 'Your score is ' + (this.score!=null?this.score:0) + ' points.', style).setOrigin(0.5).setFontSize(40)
         this.text4 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.25) + 80, 'Thanks for playing, ' + (this.name==null?'HelloCockatiel':this.name) + '.', style).setOrigin(0.5).setFontSize(40)
