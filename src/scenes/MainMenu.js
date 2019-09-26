@@ -18,6 +18,7 @@ let mountain;
 let tree;
 let ground;
 let fullButton;
+let name;
 class MainMenu extends Phaser.Scene { 
     constructor(test) { 
         super({ key: 'MainMenu' }); 
@@ -44,6 +45,8 @@ class MainMenu extends Phaser.Scene {
         mountain = this.add.image(200, 1000, 'mountain')
         tree = this.add.image(0, 0, 'tree').setScale(0.5).setOrigin(0, 0)
 
+        name = prompt("Input your name: ", "HelloCockatiel")
+        
         sign01 = this.add.image(0, 0, 'sign3').setScale(0.4)
         sign02 = this.add.image(0, 0, 'sign1').setScale(0.25)
         sign03 = this.add.image(0, 0, 'sign2').setScale(0.25)
@@ -74,13 +77,11 @@ class MainMenu extends Phaser.Scene {
         con02 = this.add.container(300, -100, [sign02, Stext01]).setScale(1)
         con03 = this.add.container(300, -100, [sign03, Stext02]).setScale(1)
         con04 = this.add.container(300, -100, [sign04, Stext03]).setScale(1)
-        console.log('con01.x: ' + con01.x + ', con01.y: ' + con01.y)
-        //Change text to sign0x next commit 
+
         Stext01.setInteractive();
         Stext01.on('clicked', function () {
-            this.scene.start('GameScene')
+            this.scene.start('GameScene', { Player_Name : name })
         }, this)
-
 
         this.input.on('gameobjectup', function (pointer, gameObject) {
             gameObject.emit('clicked', gameObject);

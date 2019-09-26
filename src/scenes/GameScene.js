@@ -48,6 +48,10 @@ class GameScene extends Phaser.Scene {
         
     }
 
+    init(data){
+        this.name = data.Player_Name
+    }
+
     preload() {
         this.load.spritesheet('player', '../../images/player.png', {
             frameWidth: 410,
@@ -83,6 +87,7 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
+        console.log(this.name)
         bg = this.add.tileSprite(0, 0, 600, 900, 'bg').setOrigin(0, 0)
         player = this.physics.add.sprite(300, 850, 'player').setCollideWorldBounds(true).setDepth(10).setScale(0.4).setSize(310,110).setOffset(60,80)
         hp = this.physics.add.sprite(450, 50, 'hp').setScale(0.1).setDepth(10)
@@ -520,7 +525,10 @@ class GameScene extends Phaser.Scene {
 
 
     gameOver() {
-        this.scene.start('Restart')
+        this.scene.start('Restart', { 
+            Player_Name : this.name,
+            Player_Score : score
+        })
         console.log('Game Over')
         health = 5
     }

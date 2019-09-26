@@ -2,11 +2,18 @@ let bg;
 let cloudSpawn
 let clouds
 let cloud
+let name01
 class Restart extends Phaser.Scene {
     constructor(test){
         super({
             key: 'Restart'
         })
+        
+    }
+
+    init(data){
+        this.name = data.Player_Name
+        this.score = data.Player_Score
         
     }
 
@@ -20,6 +27,7 @@ class Restart extends Phaser.Scene {
     }
 
     create(){
+        
         bg = this.add.tileSprite(0, 0, 600, 900, 'bg').setOrigin(0, 0)
         let style = {
             fontFamily: 'font1',
@@ -35,6 +43,8 @@ class Restart extends Phaser.Scene {
         this.text2.on('pointerdown', function(){
             this.scene.start('MainMenu')
         }, this)
+        this.text3 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.25, 'Your score is ' + (this.score!=null?this.score:0) + ' points.', style).setOrigin(0.5).setFontSize(40)
+        this.text4 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.25) + 80, 'Thanks for playing, ' + (this.name==null?'HelloCockatiel':this.name) + '.', style).setOrigin(0.5).setFontSize(40)
         clouds = this.physics.add.group()
         cloudSpawn = this.time.addEvent({
             delay: 4500,
@@ -47,6 +57,7 @@ class Restart extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
+        
     }
 
     update(){
