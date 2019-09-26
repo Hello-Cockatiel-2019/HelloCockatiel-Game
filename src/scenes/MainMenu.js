@@ -25,15 +25,15 @@ class MainMenu extends Phaser.Scene {
     } 
  
     preload() {
-        this.load.image('bg01', 'src/image/BGMenu1.png')
-        this.load.image('sign1', 'src/image/Sign1.png')
-        this.load.image('sign2', 'src/image/Sign2.png')
-        this.load.image('sign3', 'src/image/Sign3.png')
-        this.load.image('sign4', 'src/image/Sign4.png')
-        this.load.image('grass', 'src/image/Grass.png')
-        this.load.image('ground', 'src/image/Ground.png')
-        this.load.image('mountain', 'src/image/Mountain.png')
-        this.load.image('tree', 'src/image/Tree.png')
+        this.load.image('bg01', '../../images/BGMenu1.png')
+        this.load.image('sign1', '../../images/Sign1.png')
+        this.load.image('sign2', '../../images/Sign2.png')
+        this.load.image('sign3', '../../images/Sign3.png')
+        this.load.image('sign4', '../../images/Sign4.png')
+        this.load.image('grass', '../../images/Grass.png')
+        this.load.image('ground', '../../images/Ground.png')
+        this.load.image('mountain', '../../images/Mountain.png')
+        this.load.image('tree', '../../images/Tree.png')
         
     }
 

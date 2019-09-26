@@ -49,37 +49,37 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.spritesheet('player', '/src/image/player.png', {
+        this.load.spritesheet('player', '../../images/player.png', {
             frameWidth: 410,
             frameHeight: 310
         })
-        this.load.image('bg', 'src/image/background.png')
-        this.load.image('bullet', 'src/image/Bullet.png')
-        this.load.spritesheet('monster', 'src/image/Botspritesheet.png', {
+        this.load.image('bg', '../../images/background.png')
+        this.load.image('bullet', '../../images/Bullet.png')
+        this.load.spritesheet('monster', '../../images/Botspritesheet.png', {
             frameWidth: 2232,
             frameHeight: 2232
         })
-        this.load.spritesheet('hp', 'src/image/HP.png', {
+        this.load.spritesheet('hp', '../../images/HP.png', {
             frameWidth: 2510,
             frameHeight: 1510
         })
-        this.load.spritesheet('fire', 'src/image/fire.png', {
+        this.load.spritesheet('fire', '../../images/fire.png', {
             frameWidth: 492,
             frameHeight: 703
         })
-        this.load.image('cloud1', 'src/image/Cloud1.png')
-        this.load.image('cloud2', 'src/image/Cloud2.png')
-        this.load.image('cloud3', 'src/image/Cloud3.png')
-        this.load.image('cloud4', 'src/image/Cloud4.png')
-        this.load.image('cloud5', 'src/image/Cloud5.png')
-        this.load.image('bigFire', 'src/image/bigfire.png')
-        this.load.image('sea1', 'src/image/Sea-1.png')
-        this.load.image('sea2', 'src/image/Sea-2.png')
-        this.load.image('bush1', 'src/image/Bush-1.png')
-        this.load.image('bush2', 'src/image/Bush-2.png')
-        this.load.image('bush3', 'src/image/Bush-3.png')
-        this.load.image('separate', 'src/image/Separate.png')
-        this.load.image('rapid', 'src/image/Rapid.png')
+        this.load.image('cloud1', '../../images/Cloud1.png')
+        this.load.image('cloud2', '../../images/Cloud2.png')
+        this.load.image('cloud3', '../../images/Cloud3.png')
+        this.load.image('cloud4', '../../images/Cloud4.png')
+        this.load.image('cloud5', '../../images/Cloud5.png')
+        this.load.image('bigFire', '../../images/bigfire.png')
+        this.load.image('sea1', '../../images/Sea-1.png')
+        this.load.image('sea2', '../../images/Sea-2.png')
+        this.load.image('bush1', '../../images/Bush-1.png')
+        this.load.image('bush2', '../../images/Bush-2.png')
+        this.load.image('bush3', '../../images/Bush-3.png')
+        this.load.image('separate', '../../images/Separate.png')
+        this.load.image('rapid', '../../images/Rapid.png')
     }
 
     create() {

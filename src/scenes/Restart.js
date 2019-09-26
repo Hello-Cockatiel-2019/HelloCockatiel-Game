@@ -11,12 +11,12 @@ class Restart extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('bg', 'src/image/background.png')
-        this.load.image('cloud1', 'src/image/cloud1.png')
-        this.load.image('cloud2', 'src/image/cloud2.png')
-        this.load.image('cloud3', 'src/image/cloud3.png')
-        this.load.image('cloud4', 'src/image/cloud4.png')
-        this.load.image('cloud5', 'src/image/cloud5.png')
+        this.load.image('bg', '../../images/background.png')
+        this.load.image('cloud1', '../../images/cloud1.png')
+        this.load.image('cloud2', '../../images/cloud2.png')
+        this.load.image('cloud3', '../../images/cloud3.png')
+        this.load.image('cloud4', '../../images/cloud4.png')
+        this.load.image('cloud5', '../../images/cloud5.png')
     }
 
     create(){
