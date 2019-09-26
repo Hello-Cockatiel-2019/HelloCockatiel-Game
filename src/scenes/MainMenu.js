@@ -84,8 +84,16 @@ class MainMenu extends Phaser.Scene {
         con04 = this.add.container(300, -100, [sign04, Stext03]).setScale(1)
 
         Stext01.setInteractive();
+        Stext02.setInteractive();
+        Stext03.setInteractive();
         Stext01.on('clicked', function () {
             this.scene.start('GameScene', { Player_Name : name })
+        }, this)
+        Stext02.on('clicked', function () {
+            alert("Coming soon!!")
+        }, this)
+        Stext03.on('clicked', function () {
+            alert("Play my game before exit, please~~")
         }, this)
 
         this.input.on('gameobjectup', function (pointer, gameObject) {
