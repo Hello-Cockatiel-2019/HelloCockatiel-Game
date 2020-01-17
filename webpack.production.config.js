@@ -46,7 +46,7 @@ module.exports = {
         // new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' /* chunkName= */, filename: 'js/vendor.bundle.js' /* filename= */ }),
         new HtmlWebpackPlugin({
             filename: 'index.html', // path.resolve(__dirname, 'build', 'index.html'),
-            template: './src/index.html',
+            template: 'index.html',
             chunks: [ 'vendor', 'app' ],
             chunksSortMode: 'manual',
             minify: {
@@ -62,7 +62,7 @@ module.exports = {
             hash: true
         }),
         new CopyWebpackPlugin([
-            { from: 'images', to: 'images' }
+            { from: 'src/images', to: 'images' }
         ])
     
     ],
