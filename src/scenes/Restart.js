@@ -1,23 +1,28 @@
+//import gamePrService from '../services/GamePrService'
+// import Cookies from 'js-cookie';
+
 let bg;
 let cloudSpawn
 let clouds
 let cloud
 let name01
 class Restart extends Phaser.Scene {
-    constructor(test){
+    constructor(test) {
         super({
             key: 'Restart'
         })
-        
+
     }
 
-    init(data){
+    init(data) {
         this.name = data.Player_Name
         this.score = data.Player_Score
-        
+        this.userId = data.userId
+        this.verifyCode = data.verifyCode
+        this.timeStart = data.timeStart
     }
 
-    preload(){
+    preload() {
         this.load.image('bg', '../../images/background.png')
         this.load.image('cloud1', '../../images/cloud1.png')
         this.load.image('cloud2', '../../images/cloud2.png')
@@ -26,34 +31,22 @@ class Restart extends Phaser.Scene {
         this.load.image('cloud5', '../../images/cloud5.png')
     }
 
-    create(){
-        
+    create() {
+
         bg = this.add.tileSprite(0, 0, 600, 900, 'bg').setOrigin(0, 0)
         let style = {
             fontFamily: 'font1',
             fill: '#ffffff'
         }
-        this.text1 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5 + 80, 'Click to Restart', style).setOrigin(0.5).setFontSize(40)
-        this.text1.setInteractive()
 
-        this.textuser = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5 + 70, user_id, style).setOrigin(0.5).setFontSize(40)
-        
-        this.textverifycode = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5 + 50, verify_code, style).setOrigin(0.5).setFontSize(40)
-
-        this.textstarttime = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, time_start, style).setOrigin(0.5).setFontSize(40)
-
-        this.text1.setInteractive()
-        this.text1.on('pointerdown', function(){
-            
-
-        }, this)
         this.text2 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.5) + 60, 'Click to Exit', style).setOrigin(0.5).setFontSize(40)
         this.text2.setInteractive()
-        this.text2.on('pointerdown', function(){
-            this.scene.start('MainMenu', {ever : 1})
+        this.text2.on('pointerdown', function () {
+            //this.scene.start('MainMenu', {ever : 1})
+            this.gameOver()
         }, this)
-        this.text3 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.25, 'Your score is ' + (this.score!=null?this.score:0) + ' points.', style).setOrigin(0.5).setFontSize(40)
-        this.text4 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.25) + 80, 'Thanks for playing, ' + (this.name==null?'HelloCockatiel':this.name) + '.', style).setOrigin(0.5).setFontSize(40)
+        this.text3 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.25, 'Your score is ' + (this.score != null ? this.score : 0) + ' points.', style).setOrigin(0.5).setFontSize(40)
+        this.text4 = this.add.text(this.game.config.width * 0.5, (this.game.config.height * 0.25) + 80, 'Thanks for playing, ' + (this.name == null ? 'HelloCockatiel' : this.name) + '.', style).setOrigin(0.5).setFontSize(40)
         clouds = this.physics.add.group()
         cloudSpawn = this.time.addEvent({
             delay: 4500,
@@ -66,10 +59,10 @@ class Restart extends Phaser.Scene {
             callbackScope: this,
             loop: true
         });
-        
+
     }
 
-    update(){
+    update() {
         bg.tilePositionY -= 1.65
         for (var i = 0; i < clouds.getLength(); i++) {
             var cloud = clouds.getChildren()[i]
@@ -77,7 +70,12 @@ class Restart extends Phaser.Scene {
                 cloud.destroy(true)
             }
         }
-        
+
+    }
+
+    gameOver() {
+        const timePlayed = new Date()
+        window.location.href = 'line://app/1653691835-vZ4GNK7z/?userId=${this.userId}&verifyCode=${this.verifyCode}&timeStart=${this.timeStart}&score=${this.score}&timePlay=${timePlayed.getTime()}'
     }
 
 }

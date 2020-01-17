@@ -47,9 +47,9 @@ function initializeApp(data) {
         toggleAccessToken();
     });
 
-    liff.getProfile().then((profile) => {
-        document.getElementById('useridprofilefield').textContent = profileId;
-    })
+//    liff.getProfile().then((profile) => {
+//        const user_id = profile.userId;
+//    })
 
     // get profile call
     document.getElementById('getprofilebutton').addEventListener('click', function () {

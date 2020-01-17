@@ -27,18 +27,33 @@ class MainMenu extends Phaser.Scene {
     } 
     init(data){
         ever = data.ever==null?0:data.ever
+        const search = window.location.search.substring(1);
+        if(search){
+            const verifyCodeMiniGame = JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value) })
+            const userId = verifyCodeMiniGame.userId
+            const verifyCode = verifyCodeMiniGame.verifyCode
+            const timeStart = verifyCodeMiniGame.timeStart
+            if(userId&&verifyCode&&timeStart){
+                console.log(userId)
+                console.log(verifyCode)
+                console.log(timeStart)
+                this.scene.start('GameScene', { userId : userId,verifyCode: verifyCode,timeStart:timeStart })
+            }
+        }else{
+
+        }
     }
  
     preload() {
-        this.load.image('bg01', '../images/BGMenu1.png')
-        this.load.image('sign1', '../images/Sign1.png')
-        this.load.image('sign2', '../images/Sign2.png')
-        this.load.image('sign3', '../images/Sign3.png')
-        this.load.image('sign4', '../images/Sign4.png')
-        this.load.image('grass', '../images/Grass.png')
-        this.load.image('ground', '../images/Ground.png')
-        this.load.image('mountain', '../images/Mountain.png')
-        this.load.image('tree', '../images/Tree.png')
+        this.load.image('bg01', '../../images/BGMenu1.png')
+        this.load.image('sign1', '../../images/Sign1.png')
+        this.load.image('sign2', '../../images/Sign2.png')
+        this.load.image('sign3', '../../images/Sign3.png')
+        this.load.image('sign4', '../../images/Sign4.png')
+        this.load.image('grass', '../../images/Grass.png')
+        this.load.image('ground', '../../images/Ground.png')
+        this.load.image('mountain', '../../images/Mountain.png')
+        this.load.image('tree', '../../images/Tree.png')
         
     }
 
