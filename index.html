@@ -17,8 +17,22 @@
             font-weight: normal;
         }
     </style>
+    <script>
+        const url_string =  window.location.href;
+        const url = new URL(url_string);
+        const user_id = url.searchParams.get("userId");
+        const verify_code = url.searchParams.get("verifyCode");
+        const time_start = url.searchParams.get("timeStart");
+        console.log(user_id);
+        console.log(verify_code);
+        console.log(time_start);
+    </script>
 </head>
 
 <body>
     <div id="content" style="font-family:font1; display: block; width: 100%; text-align: center"></div>
-<script type="text/javascript" src="./dev/vendor.js"></script><script type="text/javascript" src="./dev/app.js"></script></body></html>
+    <script type="text/javascript" src="./dev/vendor.js"></script>
+    <script type="text/javascript" src="./dev/app.js"></script>
+</body>
+
+</html>

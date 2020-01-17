@@ -35,6 +35,13 @@ class Restart extends Phaser.Scene {
         }
         this.text1 = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Click to Restart', style).setOrigin(0.5).setFontSize(40)
         this.text1.setInteractive()
+
+        this.textuser = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, user_id, style).setOrigin(0.5).setFontSize(40)
+        
+        this.textverifycode = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, verify_code, style).setOrigin(0.5).setFontSize(40)
+        this.textstarttime = this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, time_start, style).setOrigin(0.5).setFontSize(40)
+
+        this.text1.setInteractive()
         this.text1.on('pointerdown', function(){
             this.scene.start('GameScene')
         }, this)
